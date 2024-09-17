@@ -1,0 +1,13 @@
+<a href="/" style="text-decoration: none; color: black;">
+    <h1 >Contact List</h1>
+</a>
+<form method="GET">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for contact in contacts %}
+    <li><a href="{% url 'contact_detail' contact.pk %}" style="text-decoration: none;">{{ contact.first_name }}</a> - {{ contact.email }} - {{ contact.phone }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'contact_add' %}" style="text-decoration: none;">Add Contact</a>

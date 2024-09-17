@@ -1,0 +1,9 @@
+<h1>{{ contact.first_name }} {{ contact.last_name }}</h1>
+<p>Email: {{ contact.email }}</p>
+<p>Phone: {{ contact.phone }}</p>
+<p>Address: {{ contact.address }}</p>
+<a href="{% url 'contact_edit' contact.pk %}">Edit</a>
+<form method="POST" action="{% url 'contact_delete' contact.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
